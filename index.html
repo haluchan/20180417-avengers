@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset-css.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <title>復仇者聯盟3：無限之戰</title>
+    <script type="text/javascript" src="https://testads.ad2iction.com/m/adUrl/custom/gframe/utmgif.js" id="fxGA" fname="avengers3" fserial="UA-115294384-12" pname=""></script>
+    <script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="lib/modernizr.2.5.3.min.js"></script>
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        //載入IFrame Player API code
+        let tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        let firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        //API code載入後，取代id=player的div為帶有YouTube player的iframe tag
+        let player;
+        function onYouTubeIframeAPIReady() {//此函數在IFrame Player API code 載入後將自動呼叫
+            let nowVideo = new YT.Player('player', {
+                height: '340',
+                width: '600',
+                videoId: 'JlGkuFI-lj0', //Youtube ID
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 1,
+                    'rel' : 0
+                },
+                events:{
+                    'onReady':function (){
+                        // alert('onReady')
+                        // window.clearInterval(timerForYoutube);
+                        nowVideo.addEventListener('onStateChange', stateEvt);
+                    },
+                    'onSateChange':stateEvt
+                }
+            });
+
+        function stateEvt (ev){
+            console.log(ev.data);
+            //log.innerHTML = ev.data;
+            // alert('stateEvt')
+
+            switch(ev.data){
+                case 0: //播放完畢
+                    // alert('播完拉');
+                    // let event = 'click touchstart';
+
+                    $('.lotteryBtn').off();
+                    $('.lotteryBtn').on('click touchstart', function () {
+
+                        $('.page2').fadeOut(10);
+                        $('.page3').fadeIn();
+
+                    });
+                    break;
+                case 1: //播放
+                    // alert('播放')
+
+                    break;
+                case 2: //暫停
+
+                    // alert('暫停');
+                    break;
+            }
+        }
+
+    }
+
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <section class="page1">
+
+                <div class="flipbook">
+                    <div style="background-image:url(img/B1.gif);"><img class="next" src="img/next.png" alt=""></div>
+                    <div style="background-image:url(img/B2.png);"><img class="pre" src="img/pre.png" alt=""><img class="next" src="img/next.png" alt=""></div>
+                    <div style="background-image:url(img/B3.gif);"><img class="pre" src="img/pre.png" alt=""><img class="next" src="img/next.png" alt=""></div>
+                    <div style="background-image:url(img/B4.png);"><img class="logo" src="img/logo.png" alt="復仇者聯盟3：無限之戰"></div>
+                </div>
+                <div class="bottom"><img src="img/B1B.jpg" alt=""></div>
+
+        </section>
+
+        <section class="page2">
+            <div class="pv">
+                <div class="video-container">
+                    <div id="player"></div>
+                </div>
+                <div class="btn">
+                    <div class="shareBtn"><img src="img/shareBtn.png" alt="復仇者聯盟3：無限之戰"></div>
+                    <div class="lotteryBtn"><img src="img/lotteryBtn.png" alt="復仇者聯盟3：無限之戰"></div>
+                </div>
+                <div class="p2-bottom"><img src="img/p2-bottom.png" alt="復仇者聯盟3：無限之戰"></div>
+            </div>
+        </section>
+        <section class="page3">
+            <div class="f-logo"><img src="img/a-logo.png" alt="復仇者聯盟3：無限之戰"></div>
+            <form class="Tform" action="">
+                <div class="name"><span><img src="img/name.png" alt=""></span><input type="text" name="name" value=""></div>
+                <div class="phone"><span><img src="img/phone.png" alt=""></span><input type="phone" name="phone" value="" maxlength="10"></div>
+                <div class="mail"><span><img src="img/mail.png" alt=""></span><input type="text" name="mail" value=""></div>
+            </form>
+            <div class="privacy">
+                <div class="box">
+                    <input type="checkbox" id="privacy-c" name="privacy"><label for="privacy-c"></label>
+                </div>
+                    <span><img src="img/a.png" alt=""></span>
+            </div>
+            <div class="f-btn"><img src="img/fromBtn.png" alt="復仇者聯盟3：無限之戰"></div>
+        </section>
+    </div>
+</body>
+<div id="popup">
+    <div class="content"></div>
+</div>
+<script type="text/javascript">
+    gs('進入漫畫頁');
+
+
+    function loadApp() {
+
+        // Create the flipbook
+
+        // let w =$(window).width();
+        // let h =$(window).height()/640;
+        //
+        // $(".flipbook").turn("size",  window.innerWidth, window.innerHeight*0.92);
+
+        // let w =$(window).width();
+        // let h =$(window).width()*1.634375;
+        let w = 640;
+        let h = 640*1.634375;
+        $('.flipbook').turn({
+
+            display: 'single',
+            // Width
+
+            width:w,
+
+            // Height
+
+            height:h,
+
+            // Elevation
+
+            elevation: 50,
+
+            // Enable gradientss
+
+            turnCorners: "tl,br",
+
+            acceleration: true,
+
+            peel:false,
+
+
+            when:{
+
+                turned: function(e, page) {
+                    if(page==1){
+                        $('.bottom img').attr('src',"img/B1B.jpg");
+                    }
+                    if(page==2){
+                        $('.bottom img').attr('src',"img/B2B.jpg");
+                    }
+                    if(page==3){
+                        $('.bottom img').attr('src',"img/B3B.jpg");
+                    }
+                    if(page==4){
+                        $('.bottom img').attr('src',"img/B4B.jpg");
+                    }
+                }
+            }
+
+            // Auto center this flipbook
+
+            // autoCenter: true
+
+        });
+
+        if( $('.flipbook').turn("hasPage",1)){
+
+            // autoTurnPage();
+
+        }
+
+    }
+
+
+    yepnope({
+        test : Modernizr.csstransforms,
+        yep: ['lib/turn.js'],
+        nope: ['lib/turn.html4.min.js'],
+        both: ['css/basic.css'],
+        complete: loadApp
+    });
+
+
+    function autoTurnPage(){
+        setTimeout(function() {
+            $('.flipbook').turn("next");
+        },5000);
+    }
+
+
+</script>
+
+<script type="text/javascript" src="js/commd.js"></script>
+</html>
